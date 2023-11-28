@@ -4,7 +4,7 @@ import paths from './default'
 
 const routes = [
   {
-    path: '/',
+    path: '',
     component: () => import('@/layouts/default/Default.vue'),
     children: paths,
   },

@@ -1,10 +1,7 @@
 <template>
-  <v-app>
-    <v-main>
-      
-    </v-main>
-  </v-app>
+  <DefaultView />
 </template>
 
 <script setup lang="ts">
+  import DefaultView from '@/layouts/default/Default.vue'
 </script>
