@@ -24,7 +24,7 @@
             </v-form>
           </v-card-item>
           <div class="mb-3" align="center">
-            <v-btn class="center" width="100" color="primary" variant="elevated" @clicl="Login">
+            <v-btn class="center" width="100" color="primary" variant="elevated" @click="Login">
               Login
             </v-btn>
           </div>
@@ -34,13 +34,19 @@
 </template>
 
 <script lang="ts" setup>
-  import {ref} from 'vue'
-
-  const username = ref("");
-  const password = ref("");
+  import { onMounted, ref, inject } from 'vue'
+  import router from '@/router'
+  const store = inject("store")
+  const username = ref("")
+  const password = ref("")
 
   function Login() {
-    console.log(username.value);
-    
+    store.username = username.value
+    router.push('/')
   }
+  onMounted(() => {
+    if(store.isLoggedIn()) {
+      router.push('/')
+    }
+  })
 </script>
