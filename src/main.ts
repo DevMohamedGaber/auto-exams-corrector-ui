@@ -13,8 +13,15 @@ import App from './App.vue'
 // Composables
 import { createApp } from 'vue'
 
+// Axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 const app = createApp(App)
 
 registerPlugins(app)
+
+app.use(VueAxios, axios)
+app.provide('axios', app.config.globalProperties.axios)  // provide 'axios'
 
 app.mount('#app')
