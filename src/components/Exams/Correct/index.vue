@@ -16,7 +16,10 @@
   </v-container>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 
-const steps = ref(["information", "model answers", "tests", "result"]);
+const store = inject('store')
+const axios = inject('axios')
+
+const steps = ref(["information", "model answers", "tests", "result"])
 </script>
