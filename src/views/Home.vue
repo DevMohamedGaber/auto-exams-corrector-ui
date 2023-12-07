@@ -28,7 +28,6 @@ import { ref, onMounted, inject } from 'vue';
 import CorrectExam from '@/components/Exams/Correct/index.vue'
 
 const store = inject("store");
-const axios = inject("axios");
 const drawer = ref(false);
 onMounted(() => {
   if(!store.isLoggedIn()) {

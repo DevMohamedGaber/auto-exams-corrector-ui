@@ -19,7 +19,6 @@
 import { ref, inject } from 'vue'
 
 const store = inject('store')
-const axios = inject('axios')
 
 const steps = ref(["information", "model answers", "tests", "result"])
 </script>

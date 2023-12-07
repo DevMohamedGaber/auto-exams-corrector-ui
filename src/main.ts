@@ -17,6 +17,9 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+axios.defaults.headers.common['accept'] = '*/*';
+axios.defaults.headers.common['Content-Type'] = 'application/json';
+
 const app = createApp(App)
 
 registerPlugins(app)
