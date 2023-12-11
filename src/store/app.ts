@@ -1,11 +1,13 @@
 // Utilities
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { School } from '@/Types/School'
 
 export const useAppStore = defineStore('app', {
   state: () => ({
     username: 'mohamed',
     serverURL: '',
+		schools: Array<School>
   }),
   actions: {
     isLoggedIn() : Boolean {
