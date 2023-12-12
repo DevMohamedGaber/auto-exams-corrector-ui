@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card flat>
     <v-card-subtitle>
       Please fill the following fields
     </v-card-subtitle>
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, inject, onMounted } from 'vue'
+import { ref, inject } from 'vue'
 
 const store = inject('store')
 const emit = defineEmits(['NextStep'])
