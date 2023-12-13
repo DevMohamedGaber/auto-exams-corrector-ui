@@ -39,4 +39,5 @@ export default defineConfig({
     port: 3000,
     host: true
   },
+  //base: '/auto-exams-corrector-ui/' // for github pages
 })

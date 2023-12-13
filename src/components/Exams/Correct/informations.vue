@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, inject } from 'vue'
+import { ref, inject, onMounted } from 'vue'
 
 const store = inject('store')
 const emit = defineEmits(['NextStep'])
@@ -85,4 +85,19 @@ function NextStep() {
 
   emit("NextStep")
 }
+
+onMounted(() => {
+  // test data
+  school.value = store.schools[0]
+  department.value = school.value.departments[0]
+  grade.value = department.value.grades[0]
+  subject.value = 1
+})
+
+defineExpose({
+	school,
+	department,
+  grade,
+  subject
+})
 </script>

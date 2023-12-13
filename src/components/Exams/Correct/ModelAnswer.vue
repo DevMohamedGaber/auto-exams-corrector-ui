@@ -44,6 +44,7 @@
 
     <v-card-actions class="d-flex justify-end">
       <span class="text-red text-left w-100" v-if="error">Please fill all fields first</span>
+      <v-btn variant="elevated" @click="emit('PrevStep')">Back</v-btn>
       <v-btn variant="elevated" @click="NextStep">Next</v-btn>
     </v-card-actions>
    </v-card>
@@ -52,7 +53,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const emit = defineEmits(['NextStep'])
+const emit = defineEmits(['NextStep', 'PrevStep'])
 
 const type = ref(1)
 const error = ref(false)
@@ -70,4 +71,9 @@ function NextStep() {
 
   emit("NextStep")
 }
+
+defineExpose({
+  ma_img,
+  answers
+})
 </script>

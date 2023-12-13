@@ -28,12 +28,12 @@ export const useAppStore = defineStore('app', {
 			}
 			return result;
 		},
-    async Post(api:string, data:Object) {
+    async Post(api:string, data:Object, type:string = 'application/json') {
       let url:string = this.serverURL.concat('/', api);
 			let result = await axios.post(url, data, {
 				headers: {
 					'accept': '*/*',
-					'Content-Type': 'application/json'
+					'Content-Type': type
 				}
 			});
 			return result;
