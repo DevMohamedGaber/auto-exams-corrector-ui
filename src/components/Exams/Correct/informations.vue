@@ -11,7 +11,7 @@
         item-title="name"
         label="School"
         return-object
-        @change="ResetFields"> 
+        @update:model-value="ResetFields"> 
       </v-select>
     </v-card-item>
 
@@ -68,6 +68,8 @@ const subject = ref()
 
 
 function ResetFields() {
+  console.log('changed school');
+  
   department.value = null;
   grade.value = null;
   subject.value = null;

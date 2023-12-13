@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <v-card-subtitle>
-      Please fill the following fields
+      Please select all answer sheets to be graded
     </v-card-subtitle>
 
     <v-card-item>
