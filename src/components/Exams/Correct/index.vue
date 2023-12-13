@@ -3,15 +3,24 @@
     <v-stepper v-model="step" :items="steps" hideActions rounded>
 
       <template v-slot:item.1>
-        <InformationView ref="infoComp" @NextStep="step++"/>
+        <InformationView 
+          ref="infoComp" 
+          @NextStep="step++"/>
       </template>
 
       <template v-slot:item.2>
-        <ModelAnswerView ref="answerComp" @NextStep="step++" @PrevStep="step--"/>
+        <ModelAnswerView 
+          ref="answerComp" 
+          @NextStep="step++" 
+          @PrevStep="step--"/>
       </template>
 
       <template v-slot:item.3>
-        <UploadSheetsView ref="sheetsComp" @NextStep="SubmitToServer" @PrevStep="step--"/>
+        <UploadSheetsView 
+        ref="sheetsComp" 
+        :loading="loading"
+        @NextStep="SubmitToServer" 
+        @PrevStep="step--"/>
       </template>
 
       <template v-slot:item.4>
@@ -32,6 +41,7 @@ const store = inject('store')
 
 const steps = ref(["Information", "Model answers", "Upload sheets", "Results"])
 const step = ref(4)
+const loading = ref(false);
 
 const infoComp = ref()
 const answerComp = ref()
@@ -52,8 +62,10 @@ async function SubmitToServer() {
     formData.append('sheets[]', answerComp.value.answers[i])
   }
   
+  loading.value = true
   let req = await store.value.Post('upload', formData, 'multipart/form-data')
 
+  loading.value = false
   console.log(req);
   
 }

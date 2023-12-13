@@ -19,7 +19,7 @@
     <v-card-actions class="d-flex justify-end">
       <span class="text-red text-left w-100" v-if="error">Please fill all fields first</span>
       <v-btn variant="elevated" @click="emit('PrevStep')">Back</v-btn>
-      <v-btn variant="elevated" @click="NextStep">Show Results</v-btn>
+      <v-btn variant="elevated" @click="NextStep" :loading="props.loading">Show Results</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -27,6 +27,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
+const props = defineProps(['loading'])
 const emit = defineEmits(['NextStep', 'PrevStep'])
 
 const error = ref(false) 
