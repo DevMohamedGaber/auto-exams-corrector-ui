@@ -7,7 +7,8 @@
     </v-navigation-drawer>
 
     <v-app-bar scroll-behavior="hide" class="d-flex pl-2 pr-2">
-      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <!-- @click.stop="drawer = !drawer" -->
+      <v-app-bar-nav-icon variant="text"></v-app-bar-nav-icon>
       <div class="navbar-logo d-sm-flex justify-end"></div>
       <v-app-bar-title class="d-none d-sm-flex justify-end text-subtitle-2 font-weight-bold text-grey-darken-2 pr-5">
         hello, {{ store.username }}

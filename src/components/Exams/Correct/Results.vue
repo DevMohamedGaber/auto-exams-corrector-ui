@@ -3,7 +3,8 @@
     <v-card-item>
       <v-tabs v-model="tab" color="primary" align-tabs="center" fixed-tabs>
         <v-tab :value="0">View</v-tab>
-        <v-tab :value="1">Analysis</v-tab>
+        <v-tab :value="1">Failed sheets</v-tab>
+        <v-tab :value="2">Analysis</v-tab>
       </v-tabs>
     </v-card-item>
 
@@ -13,6 +14,10 @@
       </v-window-item>
 
       <v-window-item :value="1">
+        <ResultsAnalysisView />
+      </v-window-item>
+
+      <v-window-item :value="2">
         <ResultsAnalysisView />
       </v-window-item>
     </v-window>
