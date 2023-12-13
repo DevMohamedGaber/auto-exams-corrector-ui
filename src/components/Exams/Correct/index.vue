@@ -3,31 +3,35 @@
     <v-stepper v-model="step" :items="steps" hideActions rounded>
 
       <template v-slot:item.1>
-        <InformationForm ref="infoComp" @NextStep="step++"/>
+        <InformationView ref="infoComp" @NextStep="step++"/>
       </template>
 
       <template v-slot:item.2>
-        <ModelAnswerForm ref="answerComp" @NextStep="step++" @PrevStep="step--"/>
+        <ModelAnswerView ref="answerComp" @NextStep="step++" @PrevStep="step--"/>
       </template>
 
       <template v-slot:item.3>
-        <UploadSheetsForm ref="sheetsComp" @NextStep="SubmitToServer" @PrevStep="step--"/>
+        <UploadSheetsView ref="sheetsComp" @NextStep="SubmitToServer" @PrevStep="step--"/>
       </template>
 
+      <template v-slot:item.4>
+        <ResultsView />
+      </template>
     </v-stepper>
   </v-container>
 </template>
 <script lang="ts" setup>
 import { ref, inject } from 'vue'
 // components
-import InformationForm from './informations.vue'
-import ModelAnswerForm from './ModelAnswer.vue'
-import UploadSheetsForm from './UploadSheets.vue'
+import InformationView from './informations.vue'
+import ModelAnswerView from './ModelAnswer.vue'
+import UploadSheetsView from './UploadSheets.vue'
+import ResultsView from './Results.vue'
 
 const store = inject('store')
 
 const steps = ref(["Information", "Model answers", "Upload sheets", "Results"])
-const step = ref(1)
+const step = ref(4)
 
 const infoComp = ref()
 const answerComp = ref()
